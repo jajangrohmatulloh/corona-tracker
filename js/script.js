@@ -123,3 +123,23 @@ document.addEventListener('click', function (e) {
         dropdownList.classList.remove('appear');
     }
 })
+
+const dropFilter = document.getElementsByClassName('dropdown-filter')[0];
+
+dropFilter.addEventListener('keyup', function (e) {
+    fetch('https://covid19.mathdro.id/api/countries')
+        .then(response => response.json())
+        .then(result => {
+            // console.log(result.countries)
+            let filter = result.countries.filter((el) => {
+                return el.name.toLowerCase().includes(e.target.value);
+            });
+
+            contentDropdown = filter.map(el => {
+                return `<div id="${el.name}">${el.name}</div>`
+            })
+            console.log(contentDropdown)
+
+            dropdownList.innerHTML = contentDropdown.join('')
+        })
+})
