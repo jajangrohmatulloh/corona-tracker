@@ -1,0 +1,242 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+}
+
+h2 {
+    display: inline-block;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #201F1F;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+.header {
+    padding: 0px 200px;
+    background-color: #201F1F;
+    width: 100%;
+}
+
+.header nav {
+    width: 100%;
+    height: 60px;
+    position: relative;
+    background-color: #201F1F;
+}
+
+.coronatracker {
+    position: absolute;
+    height: 100%;
+    width: 270px;
+}
+
+.coronatracker img {
+    float: left;
+    margin-right: 16px;
+}
+
+.coronatracker h2 {
+    line-height: 60px;
+}
+
+.coronatracker h2 span {
+    color: #00BDF0;
+}
+
+ul {
+    text-align: right;
+    line-height: 350%;
+}
+
+ul li {
+    list-style: none;
+    display: inline-block;
+    margin-left: 16px;
+}
+
+ul li a img {
+    margin-right: 2px;
+}
+
+ul li h2 {
+    font-weight: normal;
+}
+
+.container {
+    margin: 0px 200px;
+}
+
+h1 {
+    margin-top: 40px;
+    color: #00BDF0;
+    text-align: center;
+}
+
+.global,
+.indonesia {
+    margin: 24px 0px;
+    display: block;
+    text-align: center;
+}
+
+.container-global,
+.container-indonesia {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    border-radius: 6px;
+}
+
+.container-global .confirmed,
+.container-global .recovered,
+.container-global .deaths {
+    background-color: #F82649;
+    padding: 24px;
+    border-radius: 6px;
+}
+
+.container-global .recovered {
+    background-color: #09AD95;
+}
+
+.container-global .deaths {
+    background-color: #D43F8D;
+}
+
+.container-global h3,
+.container-indonesia h3 {
+    font-weight: normal;
+}
+
+.container-indonesia {
+    background-color: #F01717;
+}
+
+.container-indonesia .confirmed,
+.container-indonesia .recovered,
+.container-indonesia .deaths {
+    background-color: transparent;
+    padding: 24px;
+    border-radius: 6px;
+}
+
+.header-countries {
+    background-color: #fff;
+    color: #000000;
+    padding: 24px;
+    border-radius: 6px 6px 0px 0px;
+    border-bottom: 1px solid #BFBFBF;
+    margin-top: 24px;
+}
+
+.header-countries .dropdown {
+    float: right;
+    clear: both;
+}
+
+.header-countries .dropdown .dropbtn {
+    transform: translateY(-5px);
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid #8f8080;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.header-countries .dropdown .dropdown-list {
+    display: none;
+    height: 200px;
+    width: 200px;
+    border-radius: 6px;
+    overflow-y: scroll;
+}
+
+.header-countries .dropdown .dropdown-list div {
+    background-color: #ffffff;
+    padding: 8px;
+    border-bottom: 1px solid #BFBFBF;
+    cursor: pointer;
+}
+
+.header-countries .dropdown .dropdown-list div:hover {
+    background-color: #00BDF0;
+}
+
+.header-countries .dropdown .appear {
+    display: block;
+    position: absolute;
+    z-index: 3;
+}
+
+.container-countries {
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 0px 0px 6px 6px;
+    padding: 24px;
+}
+
+.container-countries .table {
+    max-height: 560px;
+    overflow-y: auto;
+    transform: translateY(-45px);
+}
+
+.container-countries .table-head,
+.container-countries .table-body {
+    display: grid;
+    grid-template-columns: 10% 30% repeat(3, 20%);
+}
+
+.container-countries .table-head {
+    background-color: #ffffff;
+    position: relative;
+    z-index: 2;
+    transform: translateX(-13px)
+}
+
+.container-countries .table-body {
+    z-index: 1;
+}
+
+.container-countries .table-head div,
+.container-countries .table-body div {
+    border-left: 1px solid #BFBFBF;
+    border-bottom: 1px solid #BFBFBF;
+    padding: 16px;
+    font-weight: bold;
+}
+
+.container-countries .table-head div {
+    border: none;
+}
+
+.container-countries .table-body div {
+    font-weight: normal;
+}
+
+.footer {
+    text-align: center;
+    background-color: #171717;
+    padding: 24px 0px;
+}
+
+.footer .icons {
+    margin-bottom: 24px;
+}
+.footer .icons a {
+    margin-right: 16px;
+}
+
+.footer span {
+    color: #00BDF0;
+}
