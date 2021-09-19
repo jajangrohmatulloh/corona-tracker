@@ -131,11 +131,11 @@ h1 {
 }
 
 .header-countries {
-    background-color: #fff;
-    color: #000000;
+    background-color: #000000;
+    color: #ffffff;
     padding: 24px;
     border-radius: 6px 6px 0px 0px;
-    border-bottom: 1px solid #BFBFBF;
+    border-bottom: 1px solid #373737;
     margin-top: 24px;
 }
 
@@ -148,9 +148,25 @@ h1 {
     transform: translateY(-5px);
     padding: 8px 16px;
     border-radius: 6px;
-    border: 1px solid #8f8080;
+    border: 2px solid #373737;
+    color: #ffffff;
     background-color: transparent;
     cursor: pointer;
+    transition: all 0.3s;
+}
+
+.header-countries .dropdown .dropbtn:hover {
+    color: #fff;
+    background-color: #00BDF0;
+    border: 1px solid #00BDF0
+
+}
+
+.header-countries .dropdown .dropdown-filter {
+    position: absolute;
+    display: block;
+    padding: 8px;
+    z-index: 3;
 }
 
 .header-countries .dropdown .dropdown-list {
@@ -162,9 +178,9 @@ h1 {
 }
 
 .header-countries .dropdown .dropdown-list div {
-    background-color: #ffffff;
+    background-color: #000000;
+    color: #ffffff;
     padding: 8px;
-    border-bottom: 1px solid #BFBFBF;
     cursor: pointer;
 }
 
@@ -176,11 +192,12 @@ h1 {
     display: block;
     position: absolute;
     z-index: 3;
+    margin-top: 40px;
 }
 
 .container-countries {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #000;
+    color: #ffffff;
     border-radius: 0px 0px 6px 6px;
     padding: 24px;
 }
@@ -198,7 +215,8 @@ h1 {
 }
 
 .container-countries .table-head {
-    background-color: #ffffff;
+    background-color: #000000;
+    color: #ffffff;
     position: relative;
     z-index: 2;
     transform: translateX(-13px)
@@ -210,8 +228,8 @@ h1 {
 
 .container-countries .table-head div,
 .container-countries .table-body div {
-    border-left: 1px solid #BFBFBF;
-    border-bottom: 1px solid #BFBFBF;
+    border-left: 1px solid #373737;
+    border-bottom: 1px solid #373737;
     padding: 16px;
     font-weight: bold;
 }
