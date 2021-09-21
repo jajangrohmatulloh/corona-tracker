@@ -164,9 +164,14 @@ h1 {
 
 .header-countries .dropdown .dropdown-filter {
     position: absolute;
-    display: block;
+    display: none;
     padding: 8px;
     z-index: 3;
+    
+}
+
+.header-countries .dropdown .dropappear {
+    display: block !important;
 }
 
 .header-countries .dropdown .dropdown-list {
