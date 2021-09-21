@@ -19,7 +19,7 @@ let filter = [];
 getGlobalData();
 getIndonesiaData();
 getCountryData('china');
-getCountryList();
+getCountryList('');
 
 document.addEventListener('click', function (e) {
     if (e.target.className == 'dropbtn' ||
@@ -50,19 +50,7 @@ dropdownList.addEventListener('click', function (e) {
 })
 
 dropFilter.addEventListener('keyup', function (e) {
-    fetch('https://covid19.mathdro.id/api/countries')
-        .then(response => response.json())
-        .then(result => {
-            // filter = result.countries.filter((el) => {
-            //     return el.name.toLowerCase().includes(e.target.value.toLowerCase());
-            // });
-
-            contentDropdown = filter.map(el => {
-                return `<div id="${el.name}">${el.name}</div>`
-            })
-
-            dropdownList.innerHTML = contentDropdown.join('')
-        })
+    getCountryList(e.target.value);
 });
 
 function getGlobalData() {
@@ -110,9 +98,12 @@ function getIndonesiaData() {
 }
 
 function getCountryData(country) {
+    tableBody.innerHTML = `<span class="loading"></span>`;
+
     fetch(`https://covid19.mathdro.id/api/countries/${country}/confirmed`)
         .then(response => response.json())
         .then(result => {
+
             contentTablebody = result.map((el, i) => {
                 return `<div>${i + 1}</div>
             <div>${el.provinceState == null ? 'No Data' : el.provinceState}</div>
@@ -132,14 +123,16 @@ function getCountryData(country) {
         .catch(err => alert("Sorry can't retrieve data at this time"));
 }
 
-function getCountryList(filter) {
+function getCountryList(keyword) {
     fetch('https://covid19.mathdro.id/api/countries')
         .then(response => response.json())
         .then(result => {
-            if (!filter == '') {
 
-            }
-            contentDropdown = result.countries.map((el) => {
+            filter = result.countries.filter((el) => {
+                return el.name.toLowerCase().includes(keyword.toLowerCase());
+            });
+
+            contentDropdown = filter.map((el) => {
                 return `<div id="${el.name}">${el.name}</div>`
             });
 

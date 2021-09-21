@@ -179,7 +179,7 @@ h1 {
     height: 200px;
     width: 200px;
     border-radius: 6px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .header-countries .dropdown .dropdown-list div {
@@ -245,6 +245,23 @@ h1 {
 
 .container-countries .table-body div {
     font-weight: normal;
+}
+
+@keyframes rotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+.container-countries .table .loading {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    border: 5px solid #D8F3FE;
+    border-bottom: 5px solid #00BDF0;
+    border-radius: 50%;
+    animation: rotate infinite 1s linear;
+    margin-left: 500%;
+    margin-top: 80px;
 }
 
 .footer {
