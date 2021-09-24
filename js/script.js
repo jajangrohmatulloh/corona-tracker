@@ -6,16 +6,10 @@ const dropdownList = document.getElementsByClassName('dropdown-list')[0];
 const dropFilter = document.getElementsByClassName('dropdown-filter')[0];
 const lastUpdate = document.getElementsByClassName('last-update')[0];
 
-let globalConfirmed = 0;
-let globalRecovered = 0;
-let globalDeaths = 0;
+let globalConfirmed, globalRecovered, globalDeaths;
+let indonesiaConfirmed, indonesiaRecovered, indonesiaDeaths;
 
-let indonesiaConfirmed = 0;
-let indonesiaRecovered = 0;
-let indonesiaDeaths = 0;
-
-let contentDropdown = '';
-let filter = [];
+let contentDropdown, filter;
 
 getGlobalData();
 getIndonesiaData();
@@ -37,6 +31,7 @@ document.addEventListener('click', function (e) {
 dropbtn.addEventListener('click', function () {
     dropdownList.classList.toggle('appear');
     dropFilter.classList.toggle('dropappear');
+    dropFilter.focus();
 })
 
 dropdownList.addEventListener('click', function (e) {
@@ -105,8 +100,7 @@ function getCountryData(country) {
         .then(response => response.json())
         .then(result => {
             let time = result[0].lastUpdate;
-            console.log(new Date(time).toString())
-            contentTablebody = result.map((el, i) => {
+            let contentTablebody = result.map((el, i) => {
                 return `<div>${i + 1}</div>
             <div>${el.provinceState == null ? 'No Data' : el.provinceState}</div>
             <div>${el.confirmed}</div>
@@ -116,11 +110,11 @@ function getCountryData(country) {
 
             tableBody.innerHTML =
                 `<div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        ${contentTablebody.join('')}`;
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            ${contentTablebody.join('')}`;
             lastUpdate.innerHTML = `Last Update: ${new Date(time)}`;
 
         })

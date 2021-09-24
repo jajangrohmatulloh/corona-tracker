@@ -84,7 +84,7 @@ h1 {
 
 .global,
 .indonesia {
-    margin: 24px 0px;
+    margin: 24px 0px 16px;
     display: block;
     text-align: center;
 }
@@ -93,7 +93,7 @@ h1 {
 .container-indonesia {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 16px;
     border-radius: 6px;
 }
 
@@ -153,17 +153,15 @@ h1 {
     transform: translateY(-5px);
     padding: 8px 16px;
     border-radius: 6px;
-    border: 2px solid #373737;
+    border: 1px solid #00BDF0;
     color: #ffffff;
-    background-color: transparent;
+    background-color: #00BDF0;
     cursor: pointer;
     transition: all 0.3s;
 }
 
 .header-countries .dropdown .dropbtn:hover {
-    color: #fff;
-    background-color: #00BDF0;
-    border: 2px solid #00BDF0
+    opacity: 70%;
 
 }
 
@@ -268,6 +266,40 @@ h1 {
     margin-left: 500%;
     margin-top: 80px;
 }
+
+.information {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 24px;
+    gap: 16px;
+}
+
+.information a {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    height: 120px;
+    padding: 24px;
+    border-radius: 6px;
+}
+
+.information a p {
+    align-self: flex-end;
+    font-weight: normal;
+}
+
+.information a:first-child {
+    background-color: #0C9F96;
+}
+.information a:nth-child(2) {
+    background-color: #E65225;
+}
+.information a:nth-child(3) {
+    background-color: #0093D5;
+}
+.information a:last-child {
+    background-color: #1CABE2;
+}
+
 
 .footer {
     margin-top: 24px;
