@@ -4,6 +4,7 @@ const tableBody = document.getElementsByClassName('table-body')[0];
 const dropbtn = document.getElementsByClassName('dropbtn')[0];
 const dropdownList = document.getElementsByClassName('dropdown-list')[0];
 const dropFilter = document.getElementsByClassName('dropdown-filter')[0];
+const lastUpdate = document.getElementsByClassName('last-update')[0];
 
 let globalConfirmed = 0;
 let globalRecovered = 0;
@@ -103,7 +104,8 @@ function getCountryData(country) {
     fetch(`https://covid19.mathdro.id/api/countries/${country}/confirmed`)
         .then(response => response.json())
         .then(result => {
-
+            let time = result[0].lastUpdate;
+            console.log(new Date(time).toString())
             contentTablebody = result.map((el, i) => {
                 return `<div>${i + 1}</div>
             <div>${el.provinceState == null ? 'No Data' : el.provinceState}</div>
@@ -119,6 +121,8 @@ function getCountryData(country) {
         <div></div>
         <div></div>
         ${contentTablebody.join('')}`;
+            lastUpdate.innerHTML = `Last Update: ${new Date(time)}`;
+
         })
         .catch(err => alert("Sorry can't retrieve data at this time"));
 }
