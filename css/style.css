@@ -137,6 +137,9 @@ h1 {
 }
 
 .header-countries {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 2fr 1fr;
     background-color: #000000;
     color: #ffffff;
     padding: 24px;
@@ -145,12 +148,10 @@ h1 {
 }
 
 .header-countries .dropdown {
-    float: right;
-    clear: both;
+    justify-self: flex-end;
 }
 
 .header-countries .dropdown .dropbtn {
-    transform: translateY(-5px);
     padding: 8px 16px;
     border-radius: 6px;
     border: 1px solid #00BDF0;
@@ -212,7 +213,7 @@ h1 {
 
 .container-countries .table {
     max-height: 560px;
-    overflow-y: auto;
+    overflow: auto;
     transform: translateY(-45px);
 }
 
@@ -282,6 +283,10 @@ h1 {
     border-radius: 6px;
 }
 
+.information a:hover {
+    opacity: 70%;
+}
+
 .information a p {
     align-self: flex-end;
     font-weight: normal;
@@ -315,6 +320,41 @@ h1 {
     margin-right: 16px;
 }
 
+.footer .icons a:hover {
+    opacity: 70%;
+}
+
 .footer span {
     color: #00BDF0;
+}
+
+@media screen and (max-width: 576px) {
+
+    .header {
+        padding: 0px 20px;
+    }
+
+    .header nav ul {
+        display: none;
+    }
+
+    .container {
+        margin: 0px 20px;
+    }
+
+    .container-global,
+    .container-indonesia {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    }
+
+    .information {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+    .footer {
+        padding: 24px 20px;
+    }
+
 }

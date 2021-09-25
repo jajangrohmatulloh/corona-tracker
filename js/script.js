@@ -38,8 +38,8 @@ dropdownList.addEventListener('click', function (e) {
     getCountryData(e.target.id);
 
     dropbtn.innerHTML = e.target.id;
-    document.querySelector('.header-countries span')
-        .innerHTML = e.target.id;
+    document.querySelector('.header-countries p')
+        .innerHTML = `Data on Coronavirus Cases in ${e.target.id} by Province`;
 
     dropdownList.classList.toggle('appear');
     dropFilter.classList.toggle('dropappear');
