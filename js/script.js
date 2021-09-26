@@ -109,12 +109,7 @@ function getCountryData(country) {
             })
 
             tableBody.innerHTML =
-                `<div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            ${contentTablebody.join('')}`;
+                `${contentTablebody.join('')}`;
             lastUpdate.innerHTML = `Last Update: ${new Date(time)}`;
 
         })
