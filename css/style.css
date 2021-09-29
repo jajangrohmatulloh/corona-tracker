@@ -223,9 +223,12 @@ h1 {
 }
 
 .container-countries .table-head {
-    background-color: #000000;
+    /* background-color: #000000; */
     color: #ffffff;
     word-wrap: break-word;
+    position: sticky;
+    z-index: 5;
+    top: 0px;
 }
 
 .container-countries .table-body {
@@ -242,6 +245,7 @@ h1 {
 
 .container-countries .table-head div {
     border-top: 1px solid #373737;
+    background-color: #000;
 }
 
 .container-countries .table-body div {
