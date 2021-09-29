@@ -223,11 +223,9 @@ h1 {
 }
 
 .container-countries .table-head {
-    /* background-color: #000000; */
     color: #ffffff;
     word-wrap: break-word;
     position: sticky;
-    z-index: 5;
     top: 0px;
 }
 
@@ -347,6 +345,11 @@ h1 {
     .container-indonesia {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 1fr);
+    }
+
+    .header-countries .dropdown .dropdown-list,
+    .header-countries .dropdown .dropdown-filter {
+        right: 40px;
     }
 
     .information {
