@@ -1,145 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="robots"
+      content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+    />
+    <meta
+      name="description"
+      content="Track COVID-19 local and global coronavirus cases with active, recoveries and death rate on the map, with daily update"
+    />
     <title>Corona Tracker</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-</head>
+    <link
+      rel="canonical"
+      href="https://jajangrohmatulloh.com/projects/corona-tracker/"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<body>
+  <body>
     <header class="header">
-        <nav>
-            <div class="coronatracker">
-                <img src="img/virus.png" alt="" width="60px">
-                <h2>Corona<span>Tracker</span></h2>
-            </div>
+      <nav>
+        <div class="coronatracker">
+          <img src="img/virus.png" alt="" width="60px" />
+          <h2>Corona<span>Tracker</span></h2>
+        </div>
 
-            <ul>
-                <li class="home">
-                    <a href="">
-                        <img src="img/home.png" alt="" width="24px">
-                        <h2>Home</h2>
-                    </a>
-                </li>
-                <li class="contact">
-                    <a href="">
-                        <img src="img/telephone.png" alt="">
-                        <h2>Contact</h2>
-                    </a>
-                </li>
-            </ul>
-
-        </nav>
+        <ul>
+          <li class="home">
+            <a href="">
+              <img src="img/home.png" alt="" width="24px" />
+              <h2>Home</h2>
+            </a>
+          </li>
+          <li class="contact">
+            <a href="">
+              <img src="img/telephone.png" alt="" />
+              <h2>Contact</h2>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <div class="container">
-        <h1>Corona Virus Global & Indonesia</h1>
+      <h1>Corona Virus Global & Indonesia</h1>
 
-        <h2 class="global">Global</h2>
+      <h2 class="global">Global</h2>
 
-        <div class="container-global">
-            <div class="confirmed">
-                <h3>Confirmed</h3>
-                <h2></h2>
-            </div>
-            <div class="recovered">
-                <h3>Recovered</h3>
-                <h2></h2>
-            </div>
-            <div class="deaths">
-                <h3>Deaths</h3>
-                <h2></h2>
-            </div>
+      <div class="container-global">
+        <div class="confirmed">
+          <h3>Confirmed</h3>
+          <h2></h2>
         </div>
-
-        <h2 class="indonesia">Indonesia</h2>
-
-        <div class="container-indonesia">
-            <div class="confirmed">
-                <h3>Confirmed</h3>
-                <h2></h2>
-            </div>
-            <div class="recovered">
-                <h3>Recovered</h3>
-                <h2></h2>
-            </div>
-            <div class="deaths">
-                <h3>Deaths</h3>
-                <h2></h2>
-            </div>
+        <div class="recovered">
+          <h3>Recovered</h3>
+          <h2></h2>
         </div>
-
-        <div class="last-update"></div>
-        <div class="header-countries">
-            <p>Data on Coronavirus Cases in China by Province</p>
-            <div class="dropdown">
-                <button class="dropbtn">China</button>
-                <input class="dropdown-filter" id="filter" type="text" placeholder="Search..." autocomplete="off" />
-                <div class="dropdown-list">
-
-                </div>
-            </div>
+        <div class="deaths">
+          <h3>Deaths</h3>
+          <h2></h2>
         </div>
-        <div class="container-countries">
-            <div class="table">
-                <div class="table-head">
-                    <div>NO.</div>
-                    <div>PROVINCE</div>
-                    <div>CONFIRMED</div>
-                    <div>RECOVERED</div>
-                    <div>DEATHS</div>
-                </div>
-                <div class="table-body">
-                    <span class="loading"></span>
-                </div>
-            </div>
-        </div>
+      </div>
 
-        <div class="information">
-            <a href="https://www.alodokter.com/virus-corona" target="_blank">
-                <h4>Corona - Gejala, Penyebab, dan Mengobati</h4>
-                <p>Alodokter</p>
-            </a>
-            <a href="https://health.kompas.com/read/2021/06/24/060500268/7-cara-mencegah-penularan-virus-corona-varian-baru-menurut-ahli?page=all"
-                target="_blank">
-                <h4>7 Cara Mencegah Penularan Virus Corona Varian Baru Menurut Ahli
-                </h4>
-                <p>Kompas</p>
-            </a>
-            <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public" target="_blank">
-                <h4>Coronavirus disease (COVID-19) advice for the public</h4>
-                <p>WHO</p>
-            </a>
-            <a href="https://www.unicef.org/indonesia/coronavirus" target="_blank">
-                <h4>Novel Coronavirus (COVID-19): What you should know</h4>
-                <p>Unicef</p>
-            </a>
-        </div>
+      <h2 class="indonesia">Indonesia</h2>
 
+      <div class="container-indonesia">
+        <div class="confirmed">
+          <h3>Confirmed</h3>
+          <h2></h2>
+        </div>
+        <div class="recovered">
+          <h3>Recovered</h3>
+          <h2></h2>
+        </div>
+        <div class="deaths">
+          <h3>Deaths</h3>
+          <h2></h2>
+        </div>
+      </div>
+
+      <div class="last-update"></div>
+      <div class="header-countries">
+        <p>Data on Coronavirus Cases in China by Province</p>
+        <div class="dropdown">
+          <button class="dropbtn">China</button>
+          <input
+            class="dropdown-filter"
+            id="filter"
+            type="text"
+            placeholder="Search..."
+            autocomplete="off"
+          />
+          <div class="dropdown-list"></div>
+        </div>
+      </div>
+      <div class="container-countries">
+        <div class="table">
+          <div class="table-head">
+            <div>NO.</div>
+            <div>PROVINCE</div>
+            <div>CONFIRMED</div>
+            <div>RECOVERED</div>
+            <div>DEATHS</div>
+          </div>
+          <div class="table-body">
+            <span class="loading"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="information">
+        <a href="https://www.alodokter.com/virus-corona" target="_blank">
+          <h4>Corona - Gejala, Penyebab, dan Mengobati</h4>
+          <p>Alodokter</p>
+        </a>
+        <a
+          href="https://health.kompas.com/read/2021/06/24/060500268/7-cara-mencegah-penularan-virus-corona-varian-baru-menurut-ahli?page=all"
+          target="_blank"
+        >
+          <h4>
+            7 Cara Mencegah Penularan Virus Corona Varian Baru Menurut Ahli
+          </h4>
+          <p>Kompas</p>
+        </a>
+        <a
+          href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public"
+          target="_blank"
+        >
+          <h4>Coronavirus disease (COVID-19) advice for the public</h4>
+          <p>WHO</p>
+        </a>
+        <a href="https://www.unicef.org/indonesia/coronavirus" target="_blank">
+          <h4>Novel Coronavirus (COVID-19): What you should know</h4>
+          <p>Unicef</p>
+        </a>
+      </div>
     </div>
 
     <footer class="footer">
-        <div class="icons">
-            <a href="https://www.facebook.com/jajang.rohmatulloh02" target="_blank">
-                <img src="img/facebook.png" alt="">
-            </a>
-            <a href="https://www.instagram.com/jajangrohmatulloh/" target="_blank">
-                <img src="img/instagram.png" alt="">
-            </a>
-            <a href="https://github.com/jajangrohmatulloh" target="_blank">
-                <img src="img/github.png" alt="">
-            </a>
-        </div>
-        Copyright © 2021 <span>Jajang Rohmatulloh</span>. All Rights Reserved
+      <div class="icons">
+        <a href="https://www.facebook.com/jajang.rohmatulloh02" target="_blank">
+          <img src="img/facebook.png" alt="" />
+        </a>
+        <a href="https://www.instagram.com/jajangrohmatulloh/" target="_blank">
+          <img src="img/instagram.png" alt="" />
+        </a>
+        <a href="https://github.com/jajangrohmatulloh" target="_blank">
+          <img src="img/github.png" alt="" />
+        </a>
+      </div>
+      Copyright © 2021 <span>Jajang Rohmatulloh</span>. All Rights Reserved
     </footer>
 
     <script src="js/script.js"></script>
-</body>
-
+  </body>
 </html>
