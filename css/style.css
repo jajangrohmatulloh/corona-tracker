@@ -1,363 +1,411 @@
 * {
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
 }
 
 a {
-    text-decoration: none;
-    color: white;
-    display: inline-block;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
 }
 
 h2 {
-    display: inline-block;
+  display: inline-block;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #201F1F;
-    color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #201f1f;
+  color: #ffffff;
 }
 
 .header {
-    padding: 0px 200px;
-    background-color: #201F1F;
-    width: 100%;
+  padding: 8px 200px;
+  background-color: #201f1f;
+  width: 100%;
 }
 
 .header nav {
-    width: 100%;
-    height: 60px;
-    position: relative;
-    background-color: #201F1F;
+  width: 100%;
+  height: 60px;
+  position: relative;
+  background-color: #201f1f;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+}
+
+.title-container h2 {
+  margin-left: 8px;
 }
 
 .coronatracker {
-    position: absolute;
-    height: 100%;
-    width: 270px;
+  position: absolute;
+  height: 100%;
 }
 
 .coronatracker img {
-    float: left;
-    margin-right: 16px;
+  float: left;
+  margin-right: 16px;
 }
 
 .coronatracker h2 {
-    line-height: 60px;
+  line-height: 60px;
 }
 
 .coronatracker h2 span {
-    color: #00BDF0;
+  color: #00bdf0;
 }
 
 ul {
-    text-align: right;
-    line-height: 350%;
+  text-align: right;
+  line-height: 350%;
 }
 
 ul li {
-    list-style: none;
-    display: inline-block;
-    margin-left: 16px;
+  list-style: none;
+  display: inline-block;
+  margin-left: 16px;
 }
 
 ul li a img {
-    margin-right: 2px;
+  margin-right: 2px;
 }
 
 ul li h2 {
-    font-weight: normal;
+  font-weight: normal;
 }
 
 .container {
-    margin: 0px 200px;
+  margin: 0px 200px;
 }
 
 h1 {
-    margin-top: 40px;
-    color: #00BDF0;
-    text-align: center;
+  margin-top: 40px;
+  color: #00bdf0;
+  text-align: center;
 }
 
 .global,
 .indonesia {
-    margin: 24px 0px 16px;
-    display: block;
-    text-align: center;
+  margin: 24px 0px 16px;
+  display: block;
+  text-align: center;
 }
 
 .container-global,
 .container-indonesia {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    border-radius: 6px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  border-radius: 6px;
 }
 
 .container-global .confirmed,
 .container-global .recovered,
 .container-global .deaths {
-    background-color: #F82649;
-    padding: 24px;
-    border-radius: 6px;
+  background-color: #f82649;
+  padding: 24px;
+  border-radius: 6px;
 }
 
 .container-global .recovered {
-    background-color: #09AD95;
+  background-color: #09ad95;
 }
 
 .container-global .deaths {
-    background-color: #D43F8D;
+  background-color: #d43f8d;
 }
 
 .container-global h3,
 .container-indonesia h3 {
-    font-weight: normal;
+  font-weight: normal;
 }
 
 .container-indonesia {
-    background-color: #F01717;
+  background-color: #16a8d0;
 }
 
 .container-indonesia .confirmed,
 .container-indonesia .recovered,
 .container-indonesia .deaths {
-    background-color: transparent;
-    padding: 24px;
-    border-radius: 6px;
+  background-color: transparent;
+  padding: 24px;
+  border-radius: 6px;
 }
 
 .last-update {
-    text-align: center;
-    font-size: 14px;
-    margin: 24px 0 8px 0;
+  text-align: center;
+  font-size: 14px;
+  margin: 24px 0 8px 0;
 }
 
 .header-countries {
-    display: grid;
-    align-items: center;
-    grid-template-columns: 2fr 1fr;
-    background-color: #000000;
-    color: #ffffff;
-    padding: 24px;
-    border-radius: 6px 6px 0px 0px;
-    border-bottom: 1px solid #373737;
+  /* display: grid; */
+  align-items: center;
+  grid-template-columns: 2fr 1fr;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 24px 24px 0px 24px;
+  border-radius: 6px 6px 0px 0px;
+  border-bottom: 1px solid #373737;
+}
+
+#filter {
+  margin-top: 20px;
+  height: 32px;
+  outline: none;
+  background: transparent;
+  border: 1px solid grey;
+  padding: 8px;
+  color: #ffffff;
+  border-radius: 4px;
 }
 
 .header-countries .dropdown {
-    justify-self: flex-end;
+  justify-self: flex-end;
 }
 
 .header-countries .dropdown .dropbtn {
-    padding: 8px 16px;
-    border-radius: 6px;
-    border: 1px solid #00BDF0;
-    color: #ffffff;
-    background-color: #00BDF0;
-    cursor: pointer;
-    transition: all 0.3s;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid #00bdf0;
+  color: #ffffff;
+  background-color: #00bdf0;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .header-countries .dropdown .dropbtn:hover {
-    opacity: 70%;
-
+  opacity: 70%;
 }
 
 .header-countries .dropdown .dropdown-filter {
-    position: absolute;
-    display: none;
-    padding: 8px;
-    z-index: 3;
-    
+  position: absolute;
+  display: none;
+  padding: 8px;
+  z-index: 3;
 }
 
 .header-countries .dropdown .dropappear {
-    display: block !important;
+  display: block !important;
 }
 
 .header-countries .dropdown .dropdown-list {
-    display: none;
-    height: 200px;
-    width: 200px;
-    border-radius: 6px;
-    overflow-y: auto;
+  display: none;
+  height: 200px;
+  width: 200px;
+  border-radius: 6px;
+  overflow-y: auto;
 }
 
 .header-countries .dropdown .dropdown-list div {
-    background-color: #000000;
-    color: #ffffff;
-    padding: 8px;
-    cursor: pointer;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 8px;
+  cursor: pointer;
 }
 
 .header-countries .dropdown .dropdown-list div:hover {
-    background-color: #00BDF0;
+  background-color: #00bdf0;
 }
 
 .header-countries .dropdown .appear {
-    display: block;
-    position: absolute;
-    z-index: 3;
-    margin-top: 40px;
+  display: block;
+  position: absolute;
+  z-index: 3;
+  margin-top: 40px;
+}
+
+.tabs-container {
+  margin-top: 8px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #6f6f6f;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+  margin: 0 5px;
+}
+
+.tab:hover {
+  color: #00bdf0;
+  /* background-color: #f0f0f0; */
+}
+
+.tab.active {
+  color: #00bdf0;
+  border-bottom-color: #00bdf0;
+  /* font-weight: bold; */
 }
 
 .container-countries {
-    background-color: #000;
-    color: #ffffff;
-    border-radius: 0px 0px 6px 6px;
-    padding: 24px;
+  background-color: #000;
+  color: #ffffff;
+  border-radius: 0px 0px 6px 6px;
+  padding: 24px;
 }
 
 .container-countries .table {
-    max-height: 598px;
-    overflow: auto;
+  max-height: 598px;
+  overflow: auto;
 }
 
 .container-countries .table-head,
 .container-countries .table-body {
-    display: grid;
-    grid-template-columns: minmax(48px, 1fr) minmax(192px, 3fr) repeat(3, minmax(96px, 2fr));
+  display: grid;
+  grid-template-columns: minmax(48px, 1fr) minmax(192px, 3fr) repeat(
+      3,
+      minmax(96px, 2fr)
+    );
 }
 
 .container-countries .table-head {
-    color: #ffffff;
-    word-wrap: break-word;
-    position: sticky;
-    top: 0px;
+  color: #ffffff;
+  word-wrap: break-word;
+  position: sticky;
+  top: 0px;
 }
 
 .container-countries .table-body {
-    z-index: 1;
+  z-index: 1;
 }
 
 .container-countries .table-head div,
 .container-countries .table-body div {
-    border: 1px solid #373737;
-    border-top: none;
-    padding: 16px;
-    font-weight: bold;
+  border: 1px solid #373737;
+  border-top: none;
+  padding: 16px;
+  font-weight: bold;
 }
 
 .container-countries .table-head div {
-    border-top: 1px solid #373737;
-    background-color: #000;
+  border-top: 1px solid #373737;
+  background-color: #000;
 }
 
 .container-countries .table-body div {
-    font-weight: normal;
+  font-weight: normal;
 }
 
 @keyframes rotate {
-    from {transform: rotate(0deg);}
-    to {transform: rotate(360deg);}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .container-countries .table .loading {
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    border: 5px solid #D8F3FE;
-    border-bottom: 5px solid #00BDF0;
-    border-radius: 50%;
-    animation: rotate infinite 1s linear;
-    margin-left: 500%;
-    margin-top: 24px;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  border: 5px solid #d8f3fe;
+  border-bottom: 5px solid #00bdf0;
+  border-radius: 50%;
+  animation: rotate infinite 1s linear;
+  margin-left: 500%;
+  margin-top: 24px;
 }
 
 .information {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    margin-top: 24px;
-    gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 24px;
+  gap: 16px;
 }
 
 .information a {
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    height: 120px;
-    padding: 24px;
-    border-radius: 6px;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  height: 120px;
+  padding: 24px;
+  border-radius: 6px;
 }
 
 .information a:hover {
-    opacity: 70%;
+  opacity: 70%;
 }
 
 .information a p {
-    align-self: flex-end;
-    font-weight: normal;
+  align-self: flex-end;
+  font-weight: normal;
 }
 
 .information a:first-child {
-    background-color: #0C9F96;
+  background-color: #0c9f96;
 }
 .information a:nth-child(2) {
-    background-color: #E65225;
+  background-color: #e65225;
 }
 .information a:nth-child(3) {
-    background-color: #0093D5;
+  background-color: #0093d5;
 }
 .information a:last-child {
-    background-color: #1CABE2;
+  background-color: #1cabe2;
 }
 
-
 .footer {
-    margin-top: 24px;
-    text-align: center;
-    background-color: #171717;
-    padding: 24px 0px;
+  margin-top: 24px;
+  text-align: center;
+  background-color: #171717;
+  padding: 24px 0px;
 }
 
 .footer .icons {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 .footer .icons a {
-    margin-right: 16px;
+  margin-right: 16px;
 }
 
 .footer .icons a:hover {
-    opacity: 70%;
+  opacity: 70%;
 }
 
 .footer span {
-    color: #00BDF0;
+  color: #00bdf0;
 }
 
 @media screen and (max-width: 576px) {
+  .header {
+    padding: 0px 20px;
+  }
 
-    .header {
-        padding: 0px 20px;
-    }
+  .header nav ul {
+    display: none;
+  }
 
-    .header nav ul {
-        display: none;
-    }
+  .container {
+    margin: 0px 20px;
+  }
 
-    .container {
-        margin: 0px 20px;
-    }
-
-    .container-global,
-    .container-indonesia {
+  .container-global,
+  .container-indonesia {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 1fr);
-    }
+  }
 
-    .header-countries .dropdown .dropdown-list,
-    .header-countries .dropdown .dropdown-filter {
-        right: 40px;
-    }
+  .header-countries .dropdown .dropdown-list,
+  .header-countries .dropdown .dropdown-filter {
+    right: 40px;
+  }
 
-    .information {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(4, 1fr);
-    }
+  .information {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
 
-    .footer {
-        padding: 24px 20px;
-    }
-
+  .footer {
+    padding: 24px 20px;
+  }
 }
