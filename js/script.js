@@ -5,20 +5,33 @@ const containerIndonesia = Array.from(
   document.getElementsByClassName('container-indonesia')[0].children
 );
 const tableBody = document.getElementsByClassName('table-body')[0];
-const dropbtn = document.getElementsByClassName('dropbtn')[0];
-const dropdownList = document.getElementsByClassName('dropdown-list')[0];
+// const dropbtn = document.getElementsByClassName('dropbtn')[0];
+// const dropdownList = document.getElementsByClassName('dropdown-list')[0];
 const dropFilter = document.getElementsByClassName('dropdown-filter')[0];
 const lastUpdate = document.getElementsByClassName('last-update')[0];
+const tabs = document.querySelectorAll('.tab');
 
 let globalConfirmed, globalRecovered, globalDeaths;
 let indonesiaConfirmed, indonesiaRecovered, indonesiaDeaths;
 
 let contentDropdown, filter;
 
-getGlobalData();
-getIndonesiaData();
-getCountryData('china');
-getCountryList('');
+let countriesData, filteredCountries;
+
+let continent = 'All';
+let keyword = '';
+
+const toNumber = new Intl.NumberFormat().format;
+
+async function initializeData() {
+  getGlobalData();
+  await getCountriesData();
+  insertDataToTable(continent, keyword);
+  // getCountryData('china');
+  // getCountryList('');
+}
+
+initializeData();
 
 document.addEventListener('click', function (e) {
   if (
@@ -28,47 +41,60 @@ document.addEventListener('click', function (e) {
   ) {
     return;
   } else {
-    dropdownList.classList.remove('appear');
-    dropFilter.classList.remove('dropappear');
+    // dropdownList.classList.remove('appear');
+    // dropFilter.classList.remove('dropappear');
   }
 });
 
-dropbtn.addEventListener('click', function () {
-  dropdownList.classList.toggle('appear');
-  dropFilter.classList.toggle('dropappear');
-  dropFilter.focus();
+tabs.forEach((el) => {
+  el.addEventListener('click', function (e) {
+    tabs.forEach((tab) => tab.classList.remove('active'));
+    e.target.classList.add('active');
+
+    continent = e.target.dataset.continent;
+    insertDataToTable(continent, keyword);
+  });
 });
 
-dropdownList.addEventListener('click', function (e) {
-  getCountryData(e.target.id);
+// dropbtn.addEventListener('click', function () {
+//   dropdownList.classList.toggle('appear');
+//   dropFilter.classList.toggle('dropappear');
+//   dropFilter.focus();
+// });
 
-  dropbtn.innerHTML = e.target.id;
-  document.querySelector(
-    '.header-countries p'
-  ).innerHTML = `Data on Coronavirus Cases in ${e.target.id} by Province`;
+// dropdownList.addEventListener('click', function (e) {
+//   getCountryData(e.target.id);
 
-  dropdownList.classList.toggle('appear');
-  dropFilter.classList.toggle('dropappear');
-});
+//   dropbtn.innerHTML = e.target.id;
+//   document.querySelector(
+//     '.header-countries p'
+//   ).innerHTML = `Data on Coronavirus Cases in ${e.target.id} by Province`;
+
+//   dropdownList.classList.toggle('appear');
+//   dropFilter.classList.toggle('dropappear');
+// });
 
 dropFilter.addEventListener('keyup', function (e) {
-  getCountryList(e.target.value);
+  // getCountryList(e.target.value);
+  keyword = e.target.value;
+  insertDataToTable(continent, keyword);
 });
 
 function getGlobalData() {
-  fetch('https://covid19.mathdro.id/api')
+  fetch('https://disease.sh/v3/covid-19/all')
     .then((response) => response.json())
     .then((result) => {
-      globalConfirmed = new Intl.NumberFormat().format(result.confirmed.value);
-      globalRecovered = new Intl.NumberFormat().format(result.recovered.value);
-      globalDeaths = new Intl.NumberFormat().format(result.deaths.value);
+      globalConfirmed = result.cases === 0 ? 'N/A' : toNumber(result.cases);
+      globalRecovered =
+        result.recovered === 0 ? 'N/A' : toNumber(result.recovered);
+      globalDeaths = result.deaths === 0 ? 'N/A' : toNumber(result.deaths);
 
       const globalData = [globalConfirmed, globalRecovered, globalDeaths];
 
       containerGlobal.forEach((el, i) => {
         const elGlobalData = el.getElementsByTagName('h2')[0];
 
-        if (globalData[i] == 0) globalData[i] = 'No Data';
+        // if (globalData[i] == 0) globalData[i] = 'No Data';
 
         elGlobalData.append(globalData[i]);
       });
@@ -76,33 +102,74 @@ function getGlobalData() {
     .catch((err) => alert("Sorry can't retrieve data at this time"));
 }
 
-function getIndonesiaData() {
-  fetch('https://covid19.mathdro.id/api/countries/indonesia')
-    .then((response) => response.json())
-    .then((result) => {
-      indonesiaConfirmed = new Intl.NumberFormat().format(
-        result.confirmed.value
-      );
-      indonesiaRecovered = new Intl.NumberFormat().format(
-        result.recovered.value
-      );
-      indonesiaDeaths = new Intl.NumberFormat().format(result.deaths.value);
+async function getCountriesData() {
+  try {
+    const response = await fetch('https://disease.sh/v3/covid-19/countries', {
+      headers: {
+        Accept: 'application/json',
+      },
+    });
 
-      const indonesiaData = [
-        indonesiaConfirmed,
-        indonesiaRecovered,
-        indonesiaDeaths,
-      ];
+    const result = await response.json();
+    countriesData = result;
 
-      containerIndonesia.forEach((el, i) => {
-        const elIndonesiaData = el.getElementsByTagName('h2')[0];
+    const indonesiaData = countriesData.filter((obj) => {
+      return obj.country === 'Indonesia';
+    })[0];
 
-        if (indonesiaData[i] == 0) indonesiaData[i] = 'No Data';
+    indonesiaConfirmed =
+      indonesiaData.cases === 0 ? 'N/A' : toNumber(indonesiaData.cases);
+    indonesiaRecovered =
+      indonesiaData.recovered === 0 ? 'N/A' : toNumber(indonesiaData.recovered);
+    indonesiaDeaths =
+      indonesiaData.deaths === 0 ? 'N/A' : toNumber(indonesiaData.deaths);
 
-        elIndonesiaData.append(indonesiaData[i]);
-      });
-    })
-    .catch((err) => alert("Sorry can't retrieve data at this time"));
+    const indonesiaDataCollection = [
+      indonesiaConfirmed,
+      indonesiaRecovered,
+      indonesiaDeaths,
+    ];
+
+    containerIndonesia.forEach((el, i) => {
+      const elIndonesiaData = el.getElementsByTagName('h2')[0];
+
+      // if (indonesiaDataCollection[i] == 0) indonesiaDataCollection[i] = 'N/A';
+
+      elIndonesiaData.append(indonesiaDataCollection[i]);
+    });
+  } catch (error) {
+    // alert("Sorry can't retrieve data at this time");
+  }
+}
+
+function insertDataToTable(continent, keyword) {
+  //   let time = result[0].lastUpdate;
+
+  filteredCountries =
+    continent === 'All' && keyword === ''
+      ? countriesData
+      : countriesData.filter(
+          (obj) =>
+            (continent === 'All' || obj.continent === continent) &&
+            obj.country.toLowerCase().includes(keyword.toLowerCase())
+        );
+
+  let contentTablebody = filteredCountries.map((obj, i) => {
+    const country = obj.country;
+
+    const cases = obj.cases === 0 ? 'N/A' : toNumber(obj.cases);
+    const recovered = obj.recovered === 0 ? 'N/A' : toNumber(obj.recovered);
+    const deaths = obj.deaths === 0 ? 'N/A' : toNumber(obj.deaths);
+
+    return `<div>${i + 1}</div>
+            <div>${country == null ? 'No Data' : country}</div>
+            <div>${cases}</div>
+            <div>${recovered == null ? 'No Data' : recovered}</div>
+            <div>${deaths}</div>`;
+  });
+
+  tableBody.innerHTML = `${contentTablebody.join('')}`;
+  //   lastUpdate.innerHTML = `Last Update: ${new Date(time)}`;
 }
 
 function getCountryData(country) {
